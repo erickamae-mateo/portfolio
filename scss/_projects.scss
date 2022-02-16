@@ -1,0 +1,97 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+
+.project {
+
+  h2 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-weight: 400;
+    padding-bottom: 50px;
+
+    @include breakpoints-down(sm) {
+      margin-bottom: 10px;
+    }
+  }
+
+  p {
+    margin-bottom: 50px;
+  }
+
+  &-content {
+    padding: 0 1rem;
+
+    @include breakpoints-down(medium) {
+      flex-direction: column;
+    }
+
+    &-text {
+      text-align: left;
+      padding-bottom: 20px;
+      line-height: 1.6;
+
+      @include breakpoints-up(medium) {
+        padding-right: 35px;
+      }
+
+      @include breakpoints-down(medium) {
+        margin-bottom: 50px;
+      }
+
+      .project-buttons {
+        @include breakpoints-down(sm) {
+          display: flex;
+          align-items: stretch;
+          flex-direction: column;
+          align-content: center;
+          justify-content: space-between;
+          text-align: center;
+
+          a {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+
+     &-img {
+     
+      img {
+    
+        width: 60%;
+        height:500px;
+        margin: 0 104px;
+
+
+        @include breakpoints-down(medium) {
+             width: auto;
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+        }
+
+        @include breakpoints-down(sm) {
+         width: -webkit-fill-available;
+          min-height: 415px;
+          object-fit: cover;
+          padding: 0;
+        }
+      }
+    }
+  }
+
+}
+
+.right-text {
+  padding-left: 35px;
+  order: 2;
+
+  @include breakpoints-down(sm) {
+    padding-left: 0;
+  }
+}
+.left-img {
+  order: 1;
+}

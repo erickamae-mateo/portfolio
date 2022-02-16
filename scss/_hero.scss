@@ -1,0 +1,33 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+
+
+
+.hero {
+  padding: 30vh 0;
+  background: #123 url(https://unsplash.it/900);
+  background-size: cover;
+  background-blend-mode: multiply;
+
+  @include breakpoints-down(sm) {
+    padding: 20vh 0;
+  }
+
+  &-content {
+    color: $white;
+    text-align: center;
+  }
+  h1 {
+    margin-bottom: 30px;
+  }
+  h5{
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &-icon{
+    white:50px;
+    height:50px;
+  }
+}

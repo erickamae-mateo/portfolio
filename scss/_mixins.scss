@@ -1,0 +1,36 @@
+
+//BREAKPOINTS
+
+@media (min-width: 1024px){
+
+}
+
+//MEANING AT THIS POINT AND BIGGER USE THIS STYLES
+// 640px 1024px 1400px
+$breakpoints-up:("medium": "640px", "large": "1024px", "xl": "1400px");
+
+// 639px 1023px 1033px
+$breakpoints-down:("sm": "639px", "medium": "1023px", "large": "1399px");
+
+@mixin breakpoints-up($size){
+	@media (min-width: map-get($breakpoints-up, $size)){
+		@content
+	}
+}
+@mixin breakpoints-down($size){
+	@media (max-width: map-get($breakpoints-down, $size)){
+		@content
+	}
+}
+
+
+// $screen-sm-min: 576px;
+
+// // Small tablets (portrait view)
+// $screen-md-min: 768px;
+
+// // Tablets and small desktops
+// $screen-lg-min: 992px;
+
+// // Large tablets and desktops
+// $screen-xl-min: 1200px;

@@ -1,0 +1,148 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'animations' as *;
+
+
+
+.header {
+  position: fixed;
+  padding: 24px 0px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: transparent;
+  transition: background 250ms ease-in;
+  color: $white;
+}
+
+.nav {
+  position: relative;
+  background: transparent;
+
+  @include breakpoints-up(medium) {
+    margin-top: 1rem;
+  }
+}
+
+.nav_links a {
+  color: $white;
+  margin-right: 10px;
+  font-weight: 400;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 5px;
+    left: 0;
+    right: 0;
+    bottom: -10px;
+    background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+  }
+
+  &:hover {
+    color: $brightCyan;
+
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+.nav_links a:not(last-child) {
+  margin-right: 16px;
+}
+
+// interserction observer menu
+.nav_links-reverse {
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
+  background-color: $veryLightBlue;
+
+  a {
+    color: $grayishBlue;
+  }
+  &:hover {
+    color: $brightCyan;
+  }
+}
+
+nav .logo {
+  padding-top: 1rem;
+}
+
+.nav_toggle span {
+  display: block;
+  width: 30px;
+  height: 4px;
+  background-color: $brightCyan;
+  transform-origin: 2px;
+  transition: all 300ms ease-in-out;
+}
+.nav_toggle span:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+/*MOBILE DESIGN TOGGLE*/
+.open span:first-child {
+  transform: rotate(45deg);
+}
+.open span:nth-child(2) {
+  opacity: 0;
+}
+.open span:last-child {
+  transform: rotate(-45deg);
+}
+
+/*CANNOT ANIMATE THE DISPLAY: NONE AND BLOCK*/
+
+.nav_toggle .open .overlay {
+  display: block;
+  animation: fadeIn 300ms ease-in-out forwards;
+}
+
+.overlay {
+  opacity: 0;
+  position: fixed;
+  top: 8%;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(#9095a7, transparent);
+}
+
+.nav_mobile {
+  position: absolute;
+  width: calc(100% - 3rem);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: $white;
+  margin-top: 1.5rem;
+  padding: 1.625rem;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.nav_mobile a {
+  display: block;
+  padding: 0.625rem;
+  color: $grayishBlue;
+  text-align: center;
+}
+.nav_mobile a:hover {
+  color: $brightCyan;
+}
+
+.pc-hide {
+  @include breakpoints-up(large) {
+    display: none;
+  }
+}
+.mob-hide {
+  @include breakpoints-down(medium) {
+    display: none;
+  }
+}

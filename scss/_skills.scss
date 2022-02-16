@@ -1,0 +1,41 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+
+
+
+.skills {
+  background-color: $black;
+  padding: 50px 30px;
+  text-align: center;
+  color: $white;
+
+  p {
+    color: $white;
+    margin-bottom: 70px;
+  }
+
+  &-content {
+  }
+  &-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+
+    @include breakpoints-up(medium) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include breakpoints-up(large) {
+      grid-template-columns: repeat(8, 1fr);
+    }
+  }
+
+  &-title {
+    margin-bottom: 10px;
+    font-size: 1.0625rem;
+    line-height: 1.2;
+    color: $white;
+  }
+}

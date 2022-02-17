@@ -452,7 +452,7 @@ nav .logo {
   }
 }
 .about-content-text {
-  text-align: justify;
+  text-align: left;
   padding: 0 15px;
 }
 @media (min-width: 640px) {

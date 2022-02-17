@@ -9,10 +9,7 @@
     margin-top: 50px;
     margin-bottom: 50px;
     text-align: center;
-
-    h2 {
-      font-weight: 400;
-    }
+    font-weight: 400;
   }
   &-content {
     padding: 0 2rem;
@@ -22,7 +19,7 @@
     }
 
     &-text {
-      text-align: justify;
+      text-align: left;
       padding: 0 15px;
 
       @include breakpoints-up(medium) {
